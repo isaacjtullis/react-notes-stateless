@@ -1,15 +1,39 @@
 import React from 'react';
 
+
 const NoteListControls = props => {
+  let notes = props.notes.map(note => {
+    if (note.id === props.selectedNoteId) {
+      return (<div className="highlightNote"> {note.body} </div>);
+    }
+  });
+  return(
+    <div>
+      {notes}
+    </div>
+  );
+}
+/*
+if (props.notes.id === props.selectedNoteId) {
+  let data = <div> {props.notes.body} </div>
   return (
-    <div className="small-5 controls columns">
-      <div className="small-5 columns">
-        <button><i className="fa fa-sticky-note-o" aria-hidden="true">New Note</i></button>
-      </div>
-      <div className="small-7 columns">
-        <input type="text" placeholder="search"></input>
-      </div>
+    <div>
+      {data}
+    </div>
+  );
+} else {
+  let data = <div> {"No Content"} </div>
+  return (
+    <div>
+      {data}
+    </div>
+  );
+}
+  return(
+    <div>
+      {data}
     </div>
   )
-}
+*/
+
 export default NoteListControls;

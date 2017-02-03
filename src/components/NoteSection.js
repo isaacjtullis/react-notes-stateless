@@ -1,11 +1,26 @@
 import React from 'react';
-import NoteListControls from './NoteListControls';
-import Notes from './Notes.js';
+import NoteContent from './NoteContent.js';
+import NoteListControls from './NoteListControls.js'
+import NoteForm from './Noteform.js'
 
 const NoteSection = props => {
+  let data = props.notes.map(notes => {
+    return (
+      <div>
+        <NoteContent
+          id = {notes.id}
+          body = {notes.body}
+          timeDate = {notes.updatedAt}
+          selectedId = {props.selectedNoteId}
+        />
+      </div>
+    );
+  });
+
   return(
     <div>
-      <NoteListControls></NoteListControls>
+      <NoteForm></NoteForm>
+      {data}
     </div>
   );
 };
@@ -13,6 +28,8 @@ const NoteSection = props => {
 export default NoteSection;
 
 /*
+import NoteListControls from './NoteListControls.js';
+<NoteListControls body = {notes.body}></NoteListControls>
 let data = props.notes.map(notes => {
   return (
     <Notes
@@ -21,4 +38,10 @@ let data = props.notes.map(notes => {
     />
   );
 });
+
+<NoteContent
+  id = {notes.id}
+  body = {notes.body}
+  timeDate = {notes.updatedAt}
+/>
 */

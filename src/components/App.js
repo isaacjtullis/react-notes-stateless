@@ -1,7 +1,7 @@
 import React from 'react';
 import FolderList from './FolderList.js';
 import NoteSection from './NoteSection.js';
-import FolderForm from './FolderForm.js';
+import NoteListControls from './NoteListControls.js';
 
 const data = {
   folders: [ {
@@ -39,15 +39,15 @@ const data = {
 
 const App = props => {
   return (
-    <div>
-      <div className="small-5 foldersection columns">
-        <FolderList key={data.selectedFolderId} folders={data.folders}></FolderList>
-        <div>
-          <FolderForm></FolderForm>
-        </div>
+    <div className="small-12 small-centered columns">
+      <div className="small-2 large-4 columns">
+        <FolderList key={data.selectedFolderId} folders={data.folders} selectedFolderId={data.selectedFolderId}></FolderList>
       </div>
-      <div className="notesection">
-        <NoteSection key={data.selectedNoteId} notes={data.notes}></NoteSection>
+      <div className="small-4 large-4 columns">
+        <NoteSection key={data.selectedNoteId} notes={data.notes} selectedNoteId={data.selectedNoteId}></NoteSection>
+      </div>
+      <div class="small-4 large-4 columns">
+        <NoteListControls key={data.selectedNoteId} notes={data.notes} selectedNoteId={data.selectedNoteId}></NoteListControls>
       </div>
     </div>
   );
