@@ -1,32 +1,58 @@
 import React from 'react';
 import Folder from './Folder.js';
 import FolderForm from './FolderForm.js';
-/*
-import Notes from './Notes.js';
-import FolderForm from './FolderForm.js'
-import NoteForm from './NoteForm.js'
-<Folder
-  key = {folder.id}
-  name = {folder.name}
-  notes = {folder.notes}
-/>
-*/
+
 const FolderList = props => {
+/*
   let folders = props.folders.map(folder => {
+    let unhighlight = "unhighlighted"
     if (folder.id === props.selectedFolderId) {
-       return(<div className="folder-highlight"> {folder.name} </div>);
+      let unhighlight = "folder-highlight"
+      return (
+        <div className={unhighlight}>
+          {folder.name}
+        </div>
+      )
     } else {
-       return(<div className=""> {folder.name} </div>);
+      return (
+        <div className={unhighlight}>
+          {folder.name}
+        </div>
+      )
     }
+  });
+*/
+/*
+let folders = props.folders.map(folder => {
+  let unhighlight = "unhighlighted"
+  if (folder.id === props.selectedFolderId) {
+    let unhighlight = "folder-highlight"
+  }
+
+  return (
+    <div className={unhighlight}>
+      {folder.name}
+    </div>
+  )
+});
+*/
+  let folders = props.folders.map(folder => {
+    return (
+      <Folder
+        name = {folder.name}
+        id = {folder.id}
+        selectedId = {props.selectedFolderId}
+      />
+    )
   });
 
   return(
     <div className="folderlists">
       <ul>
         <div className="small-12 columns">
-          {<ul>
+          <ul>
             {folders}
-          </ul>}
+          </ul>
           <div className="small-12 columns">
             <FolderForm></FolderForm>
           </div>
@@ -38,6 +64,15 @@ const FolderList = props => {
 
 export default FolderList;
 
+/*
+let folders = props.folders.map(folder => {
+if (folder.id === props.selectedFolderId) {
+return(<div className="folder-highlight"> {folder.name} </div>);
+} else {
+return(<div className=""> {folder.name} </div>);
+}
+});
+*/
 /*
 const FolderList = props => {
   let folders = props.folders.map(folder => {
